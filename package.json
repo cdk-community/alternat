@@ -3,7 +3,7 @@
   "description": "A high availability implementation of NAT instances designed to reduce NAT Gateway data processing costs",
   "repository": {
     "type": "git",
-    "url": "git@github.com:cdk-community/alternat-cdk.git"
+    "url": "git@github.com:cdk-community/alternat.git"
   },
   "scripts": {
     "build": "npx projen build",
