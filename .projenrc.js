@@ -4,9 +4,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Ben Whaley',
   cdkVersion: '2.53.0',
   defaultReleaseBranch: 'main',
-  gitignore: ['cdk.context.json', 'cdk.out', '__pycache__'],
+  license: 'MIT',
+  gitignore: ['cdk.context.json', 'cdk.out'],
   name: 'alternat',
-  repositoryUrl: 'git@github.com:1debit/alternat.git',
+  repositoryUrl: 'git@github.com:cdk-community/alternat-cdk.git',
   tsconfig: {
     compilerOptions: {
       esModuleInterop: true,
