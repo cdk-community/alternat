@@ -27,7 +27,7 @@ validate_var() {
    var_name="$1"
    var_val="$2"
    if [ ! "$2" ]; then
-      echo "Config var "$var_name" is unset"
+      echo "Config var \"$var_name\" is unset"
       exit 1
    fi
 }
@@ -89,7 +89,6 @@ function associate_eip() {
    # Retry the allocation operation $num_retries times with a $sleep_len wait between retries.
    # This is to handle any delays in releasing an EIP allocation during instance termination.
    for n in $(seq 1 "$num_retries"); do
-      # $$ is the interpolation escape sequence in Terraform templates.
       for eip_allocation_id in "${eip_allocation_ids[@]}"
       do
          eip=$(aws ec2 describe-addresses --allocation-ids "$eip_allocation_id" --query 'Addresses[0].PublicIp' | tr -d '"')
@@ -116,17 +115,11 @@ function associate_eip() {
    echo "Associated EIP $eip with instance $INSTANCE_ID";
 }
 
-# configure_route_table() assumes that route tables for the private subnets have a
-# name of the form $VpcName-$Suffix-$AzName
 # First try to replace an existing route
 # If no route exists already (e.g. first time set up) then create the route.
 configure_route_table() {
-   echo "Configuring route table"
+   echo "Configuring route tables"
 
-   echo "Discovering availability zone"
-   AZ=$(CURL_WITH_TOKEN "$II_URI" | grep availabilityZone | awk -F\" '{print $4}')
-
-   echo "Discovering route tables"
    IFS=',' read -r -a route_table_ids <<< "${route_table_ids_csv}"
 
    for route_table_id in "${route_table_ids[@]}"
@@ -134,7 +127,7 @@ configure_route_table() {
       echo "Attempting to find route table $route_table_id"
       local rtb_id=$(aws ec2 describe-route-tables --filters Name=route-table-id,Values=${route_table_id} --query 'RouteTables[0].RouteTableId' | tr -d '"')
       if [ -z "$rtb_id" ]; then
-         panic "Unable to find a route table to update!"
+         panic "Unable to find route table $rtb_id"
       fi
 
       echo "Found route table $rtb_id"
@@ -144,7 +137,7 @@ configure_route_table() {
          echo "Successfully replaced route to 0.0.0.0/0 via instance $INSTANCE_ID for route table $rtb_id"
          continue
       fi
-   
+
       echo "Unable to replace route. Attempting to create route"
       aws ec2 create-route --route-table-id "$rtb_id" --instance-id "$INSTANCE_ID" --destination-cidr-block 0.0.0.0/0
       if [ $? -eq 0 ]; then

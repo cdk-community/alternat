@@ -85,7 +85,6 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#alternat.AlterNat.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#alternat.AlterNat.property.props">props</a></code> | <code><a href="#alternat.AlterNatProps">AlterNatProps</a></code> | *No description.* |
 
 ---
 
@@ -98,16 +97,6 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="alternat.AlterNat.property.props"></a>
-
-```typescript
-public readonly props: AlterNatProps;
-```
-
-- *Type:* <a href="#alternat.AlterNatProps">AlterNatProps</a>
 
 ---
 
@@ -128,27 +117,26 @@ const alterNatProps: AlterNatProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#alternat.AlterNatProps.property.alterNatLambdaImageRepo">alterNatLambdaImageRepo</a></code> | <code>aws-cdk-lib.aws_ecr.IRepository</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.alterNatLambdaImageTag">alterNatLambdaImageTag</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.ami">ami</a></code> | <code>aws-cdk-lib.aws_ec2.IMachineImage</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.connectivityCheckUrls">connectivityCheckUrls</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.createEc2Endpoint">createEc2Endpoint</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.createLambdaEndpoint">createLambdaEndpoint</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.enableSsm">enableSsm</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.gatewayEips">gatewayEips</a></code> | <code>aws-cdk-lib.aws_ec2.CfnEIP[]</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.iamRole">iamRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.ingressCidrRanges">ingressCidrRanges</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.ingressSecurityGroups">ingressSecurityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.instanceEips">instanceEips</a></code> | <code>aws-cdk-lib.aws_ec2.CfnEIP[]</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.instanceType">instanceType</a></code> | <code>aws-cdk-lib.aws_ec2.InstanceType</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.lifecycleHeartbeatTimeout">lifecycleHeartbeatTimeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.maxInstanceLifetime">maxInstanceLifetime</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.natGateways">natGateways</a></code> | <code>aws-cdk-lib.aws_ec2.CfnNatGateway[]</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.privateSubnetsSelection">privateSubnetsSelection</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.publicSubnetsSelection">publicSubnetsSelection</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.securityGroup">securityGroup</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup</code> | *No description.* |
-| <code><a href="#alternat.AlterNatProps.property.snsTopic">snsTopic</a></code> | <code>aws-cdk-lib.aws_sns.Topic</code> | *No description.* |
+| <code><a href="#alternat.AlterNatProps.property.alterNatLambdaImageRepo">alterNatLambdaImageRepo</a></code> | <code>aws-cdk-lib.aws_ecr.IRepository</code> | An ECR repository containing the alterNAT container image. |
+| <code><a href="#alternat.AlterNatProps.property.alterNatLambdaImageTag">alterNatLambdaImageTag</a></code> | <code>string</code> | The tag of the alterNAT Lambda container image. |
+| <code><a href="#alternat.AlterNatProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The vpc in which to provision the alterNAT instances and related resources. |
+| <code><a href="#alternat.AlterNatProps.property.ami">ami</a></code> | <code>aws-cdk-lib.aws_ec2.IMachineImage</code> | The ami to use for the NAT instances. |
+| <code><a href="#alternat.AlterNatProps.property.connectivityCheckUrls">connectivityCheckUrls</a></code> | <code>string[]</code> | A list of URLs to use for checking connectivity through the NAT instances. |
+| <code><a href="#alternat.AlterNatProps.property.createEc2Endpoint">createEc2Endpoint</a></code> | <code>boolean</code> | Whether to create a VPC Endpoint to EC2. |
+| <code><a href="#alternat.AlterNatProps.property.createLambdaEndpoint">createLambdaEndpoint</a></code> | <code>boolean</code> | Whether to create a VPC Endpoint to Lambda. |
+| <code><a href="#alternat.AlterNatProps.property.enableSsm">enableSsm</a></code> | <code>boolean</code> | Whether to enable SSM on the NAT instances by attaching the AmazonSSMManagedInstanceCore managed policy. |
+| <code><a href="#alternat.AlterNatProps.property.gatewayEips">gatewayEips</a></code> | <code>aws-cdk-lib.aws_ec2.CfnEIP[]</code> | A list of NAT Gateway EIPs. |
+| <code><a href="#alternat.AlterNatProps.property.iamRole">iamRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The IAM Role to associate with the NAT instances. |
+| <code><a href="#alternat.AlterNatProps.property.ingressCidrRanges">ingressCidrRanges</a></code> | <code>string[]</code> | A list of CIDR ranges to allow in the NAT instance security group. |
+| <code><a href="#alternat.AlterNatProps.property.ingressSecurityGroups">ingressSecurityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | A list of security groups to allow in the NAT instance security group. |
+| <code><a href="#alternat.AlterNatProps.property.instanceEips">instanceEips</a></code> | <code>aws-cdk-lib.aws_ec2.CfnEIP[]</code> | A list of EIPs for the NAT instances to use. |
+| <code><a href="#alternat.AlterNatProps.property.instanceType">instanceType</a></code> | <code>aws-cdk-lib.aws_ec2.InstanceType</code> | The EC2 instance type to use for the NAT instances. |
+| <code><a href="#alternat.AlterNatProps.property.lifecycleHeartbeatTimeout">lifecycleHeartbeatTimeout</a></code> | <code>aws-cdk-lib.Duration</code> | The amount of time to wait in the EC2 instance terminating state (e.g. in between NAT instance termination and a new NAT instance in the Auto Scaling Group). |
+| <code><a href="#alternat.AlterNatProps.property.maxInstanceLifetime">maxInstanceLifetime</a></code> | <code>aws-cdk-lib.Duration</code> | The maximum lifetime to set for instances in the NAT instances Auto Scaling Groups. |
+| <code><a href="#alternat.AlterNatProps.property.natGateways">natGateways</a></code> | <code>aws-cdk-lib.aws_ec2.CfnNatGateway[]</code> | A list of NAT gateways to use on standby. |
+| <code><a href="#alternat.AlterNatProps.property.privateSubnetsSelection">privateSubnetsSelection</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The private subnets that should route through the NAT instances. |
+| <code><a href="#alternat.AlterNatProps.property.publicSubnetsSelection">publicSubnetsSelection</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The public subnets in which the NAT instances should be placed. |
+| <code><a href="#alternat.AlterNatProps.property.securityGroup">securityGroup</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup</code> | The Security Group in which to place the NAT instances. |
 
 ---
 
@@ -160,6 +148,8 @@ public readonly alterNatLambdaImageRepo: IRepository;
 
 - *Type:* aws-cdk-lib.aws_ecr.IRepository
 
+An ECR repository containing the alterNAT container image.
+
 ---
 
 ##### `alterNatLambdaImageTag`<sup>Required</sup> <a name="alterNatLambdaImageTag" id="alternat.AlterNatProps.property.alterNatLambdaImageTag"></a>
@@ -169,6 +159,8 @@ public readonly alterNatLambdaImageTag: string;
 ```
 
 - *Type:* string
+
+The tag of the alterNAT Lambda container image.
 
 ---
 
@@ -180,6 +172,8 @@ public readonly vpc: IVpc;
 
 - *Type:* aws-cdk-lib.aws_ec2.IVpc
 
+The vpc in which to provision the alterNAT instances and related resources.
+
 ---
 
 ##### `ami`<sup>Optional</sup> <a name="ami" id="alternat.AlterNatProps.property.ami"></a>
@@ -189,6 +183,9 @@ public readonly ami: IMachineImage;
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.IMachineImage
+- *Default:* Amazon Linux latest.
+
+The ami to use for the NAT instances.
 
 ---
 
@@ -199,6 +196,9 @@ public readonly connectivityCheckUrls: string[];
 ```
 
 - *Type:* string[]
+- *Default:* ["www.example.com", "www.google.com"]
+
+A list of URLs to use for checking connectivity through the NAT instances.
 
 ---
 
@@ -209,6 +209,12 @@ public readonly createEc2Endpoint: boolean;
 ```
 
 - *Type:* boolean
+- *Default:* Create an EC2 VPC endpoint.
+
+Whether to create a VPC Endpoint to EC2.
+
+If false, you must create the VPC
+endpoint separately.
 
 ---
 
@@ -219,6 +225,12 @@ public readonly createLambdaEndpoint: boolean;
 ```
 
 - *Type:* boolean
+- *Default:* Create a Lambda VPC endpoint.
+
+Whether to create a VPC Endpoint to Lambda.
+
+If false, you must create the VPC
+endpoint separately.
 
 ---
 
@@ -229,6 +241,9 @@ public readonly enableSsm: boolean;
 ```
 
 - *Type:* boolean
+- *Default:* False.
+
+Whether to enable SSM on the NAT instances by attaching the AmazonSSMManagedInstanceCore managed policy.
 
 ---
 
@@ -239,6 +254,12 @@ public readonly gatewayEips: CfnEIP[];
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.CfnEIP[]
+- *Default:* Create new EIPs for the standby NAT Gateways.
+
+A list of NAT Gateway EIPs.
+
+Only used if the natGateways property is an empty
+list.
 
 ---
 
@@ -249,6 +270,9 @@ public readonly iamRole: IRole;
 ```
 
 - *Type:* aws-cdk-lib.aws_iam.IRole
+- *Default:* Creates a new IAM role.
+
+The IAM Role to associate with the NAT instances.
 
 ---
 
@@ -260,6 +284,8 @@ public readonly ingressCidrRanges: string[];
 
 - *Type:* string[]
 
+A list of CIDR ranges to allow in the NAT instance security group.
+
 ---
 
 ##### `ingressSecurityGroups`<sup>Optional</sup> <a name="ingressSecurityGroups" id="alternat.AlterNatProps.property.ingressSecurityGroups"></a>
@@ -270,6 +296,8 @@ public readonly ingressSecurityGroups: ISecurityGroup[];
 
 - *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
 
+A list of security groups to allow in the NAT instance security group.
+
 ---
 
 ##### `instanceEips`<sup>Optional</sup> <a name="instanceEips" id="alternat.AlterNatProps.property.instanceEips"></a>
@@ -279,6 +307,9 @@ public readonly instanceEips: CfnEIP[];
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.CfnEIP[]
+- *Default:* Create new EIPs for the NAT instances.
+
+A list of EIPs for the NAT instances to use.
 
 ---
 
@@ -289,6 +320,9 @@ public readonly instanceType: InstanceType;
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.InstanceType
+- *Default:* c6gn.8xlarge
+
+The EC2 instance type to use for the NAT instances.
 
 ---
 
@@ -299,6 +333,9 @@ public readonly lifecycleHeartbeatTimeout: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+- *Default:* 3 minutes.
+
+The amount of time to wait in the EC2 instance terminating state (e.g. in between NAT instance termination and a new NAT instance in the Auto Scaling Group).
 
 ---
 
@@ -309,6 +346,15 @@ public readonly maxInstanceLifetime: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+- *Default:* 14 days.
+
+The maximum lifetime to set for instances in the NAT instances Auto Scaling Groups.
+
+When this value is reached, the instance will be terminated, a
+lifecycle hook will fire to swap the route to the standby NAT Gateway, and a
+new instance will boot and provision itself.
+
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html
 
 ---
 
@@ -319,6 +365,9 @@ public readonly natGateways: CfnNatGateway[];
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.CfnNatGateway[]
+- *Default:* Create new NAT gateways.
+
+A list of NAT gateways to use on standby.
 
 ---
 
@@ -329,6 +378,9 @@ public readonly privateSubnetsSelection: SubnetSelection;
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+- *Default:* Discover all private subnets in the VPC.
+
+The private subnets that should route through the NAT instances.
 
 ---
 
@@ -339,6 +391,9 @@ public readonly publicSubnetsSelection: SubnetSelection;
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+- *Default:* Discover the public subnets in the VPC.
+
+The public subnets in which the NAT instances should be placed.
 
 ---
 
@@ -349,16 +404,9 @@ public readonly securityGroup: ISecurityGroup;
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup
+- *Default:* Create a new security group with all outbound traffic allowed and no inbound traffic allowed. See the ingressSecurityGroups and ingressCidrRanges properties.
 
----
-
-##### `snsTopic`<sup>Optional</sup> <a name="snsTopic" id="alternat.AlterNatProps.property.snsTopic"></a>
-
-```typescript
-public readonly snsTopic: Topic;
-```
-
-- *Type:* aws-cdk-lib.aws_sns.Topic
+The Security Group in which to place the NAT instances.
 
 ---
 

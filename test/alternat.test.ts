@@ -92,10 +92,10 @@ describe('AlterNatStack', () => {
       LaunchTemplateData: {
         BlockDeviceMappings: [
           {
-            DeviceName: constants.EBS_VOLUME_DEVICE_NAME,
+            DeviceName: constants.DEFAULT_EBS_VOLUME_DEVICE_NAME,
             Ebs: {
               Encrypted: true,
-              VolumeSize: constants.EBS_VOLUME_SIZE,
+              VolumeSize: constants.DEFAULT_EBS_VOLUME_SIZE,
               VolumeType: 'gp3',
             },
           },
