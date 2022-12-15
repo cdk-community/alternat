@@ -32,7 +32,6 @@ jspm_packages/
 .cache
 cdk.context.json
 cdk.out
-__pycache__
 !/.projenrc.js
 /test-reports/
 junit.xml
